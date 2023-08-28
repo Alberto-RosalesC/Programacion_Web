@@ -33,7 +33,7 @@
 6.**inline-table:**     Similar al valor table, pero el elemento se comporta como una tabla en línea, lo que significa que no inicia una nueva línea.
 <Center> <img src="https://i.ytimg.com/vi/Mlzz1xRB0sc/maxresdefault.jpg" width="400" height="300">  
 
-#
+##
 ### Fuentes de informacíon
 [DEV](https://dev.to/lupitacode/la-propiedad-display-en-css-1b6a)  
 [M mdn web docs](https://developer.mozilla.org/es/docs/Learn/CSS/Building_blocks/The_box_model)
