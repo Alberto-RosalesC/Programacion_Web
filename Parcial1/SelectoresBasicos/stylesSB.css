@@ -35,7 +35,7 @@ h1{
     border-width: auto;
 }
 #titulo5 {
-    color: yellow;
+    color: rgb(247, 247, 59);
     border-left-style: groove;
     border-color: yellow;
     border-width: auto;
@@ -71,5 +71,5 @@ h1{
 .button:hover{
     background-image: url(https://st3.depositphotos.com/1001911/15968/v/450/depositphotos_159687030-stock-illustration-couch-potato-emoticon.jpg);
     width: 450px;
-    height: 360px;
+    height: 365px;
 }
