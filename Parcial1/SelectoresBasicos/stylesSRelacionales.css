@@ -1,0 +1,27 @@
+/* Ejemplos de selectores relacionales*/
+
+body{
+    color: blue;
+}
+
+p{
+    font-weight: bold;
+}
+
+/* Decendiente 
+#contenedor p{
+    color: red;
+}*/
+
+
+/*#contenedor > p{
+    color: red;
+}*/
+
+/*p + div{
+    color: red;
+}*(
+
+/*p ~ div{
+    color: red;
+}*/
