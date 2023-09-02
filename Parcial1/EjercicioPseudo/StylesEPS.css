@@ -40,10 +40,10 @@ th, td {
 .Dinamica tr:nth-child(even){
     background-color: yellow;
 }
-.Estructural tr:nth-child(odd){
+.Estructural tr:first-child{
     background-color: gray;
 }
-.Interfaz tr:nth-child(even){
+.Interfaz tr:last-child{
     background-color: yellow;
 } 
 td:hover{
