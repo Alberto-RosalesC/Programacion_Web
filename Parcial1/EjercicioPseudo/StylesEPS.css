@@ -1,0 +1,58 @@
+body{
+    margin: 20px;
+}
+h1{
+    margin-top: 0;
+    color: white;
+    background-color: steelblue;
+}
+.Elementos{
+    width: 100%; /* Ancho de la tabla al 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes para una apariencia más limpia */
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ccc; /* Bordes de 1 píxel sólidos con color gris */
+    padding: 8px; /* Espacio interno dentro de las celdas */
+    text-align: left; /* Alineación del texto a la izquierda */
+  }
+
+.Dinamica{
+    width: 100%; /* Ancho de la tabla al 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes para una apariencia más limpia */
+    margin-bottom: 20px;
+}
+
+.Estructural{
+    width: 100%; /* Ancho de la tabla al 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes para una apariencia más limpia */
+    margin-bottom: 20px;
+}
+
+.Interfaz{
+    width: 100%; /* Ancho de la tabla al 100% del contenedor */
+    border-collapse: collapse; /* Colapsar bordes para una apariencia más limpia */
+    margin-bottom: 20px;
+}
+.Elementos tr:nth-child(odd){
+    background-color: gray;
+}
+.Dinamica tr:nth-child(even){
+    background-color: yellow;
+}
+.Estructural tr:nth-child(odd){
+    background-color: gray;
+}
+.Interfaz tr:nth-child(even){
+    background-color: yellow;
+} 
+td:hover{
+background-color: steelblue;
+color: white;
+}
+
+tr:active{
+    background-color: red;
+    color: white;
+}
+

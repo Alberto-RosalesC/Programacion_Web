@@ -3,13 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pseudo Selectores</title>
+    <link rel="stylesheet" href="StylesEPS.css">
 </head>
 <body>
-    <table>
-        <thead>
-            <tr><th></th></tr>
-        </thead>
-    </table>
+    <h1>Pseudo Selectores</h1>
+    <div class="Elementos">
+        <table>
+            <thead>
+            <tr><th>Pseudo Elemento </th><th>Seleccionara: </th></tr>
+            </thead>
+
+         <tbody>
+                <tr><td>::first-letter</td><td>La primera letra de un elemento de bloque.</td></tr>
+                <tr><td>::first-line</td><td>La primera linea de un elemento de bloque.</td></tr>
+                <tr><td>::before</td><td>La ubicacion que esta antes de un elemento.</td></tr>
+                <tr><td>::before</td><td>La ubicacion que esta antes de un elemento.</td></tr>
+         </tbody>
+
+        </table>
+    </div>
+
+    <div class="Dinamica">
+        <table>
+            <thead>
+                <tr><th>Pseudo Clase Dinamica </th><th>Seleccionara: </th></tr>
+            </thead>
+
+            <tbody>
+                <tr><td>:link</td><td>Los enlaces que no se han visitado(Solo para elementos &lt; a &gt;)</td></tr>
+                <tr><td>:Visited</td><td>Los enlaces que ya se han visitado(Solo para elementos &lt; a &gt;)</td></tr>
+                <tr><td>:hover</td><td>Elemento cuando el usuario pasa el raton sobre el</td></tr>
+                <tr><td>:active</td><td>Elemento activo (Solo durante el click)</td></tr>
+                <tr><td>:focus</td><td>Elemento que tiene el focus(hasta que lo pierda)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="Estructural">   
+        <table>
+            <thead>
+                <tr><th>Pseudo Clase Estructural </th> <th>Seleccionara: </th></tr>
+            </thead>
+            <tbody>
+                <tr><td>:first-chlid</td><td>El primer hijo seleccionado.</td></tr>
+                <tr><td>:last-child</td><td>El umtimo hijo seleccionado.</td></tr>  
+                <tr><td>:nth-child(n)</td><td>Enesimo hijo del elemento seleccionado</td></tr>
+                <tr><td>:nth-last-child(n)</td><td>Enesimo hijo seleccionado (empezando del final hacia el inicio)</td></tr>
+                <tr><td>:first-of-type</td><td>El primer hijo seleccionado.</td></tr>
+                <tr><td>:last-of-type</td><td>El ultimo hijo del elemento seleccionado del mismo tipo</td></tr>
+                <tr><td>:nth-of-type</td><td>Enesimo hijo del elemento seleccionado del mismo</td></tr>
+                <tr><td>:nth-last-of-type</td><td>Enesimo hijo del elemento seleccionado(empezando del final hacia el inicio)</td></tr>
+                <tr><td>:only-child</td><td>Si el elemento tiene un hijo unico</td></tr>
+                <tr><td>:only-of-type</td><td>Si el elemento no tiene hermanos del mismo tipo</td></tr>
+                <tr><td>:empity</td><td>Los elementos que no tengan contenido</td></tr>
+                <tr><td>:root</td><td>Siempre es &lt; html &gt; </td></tr>
+         </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="Interfaz">   
+        <table>
+            <thead>
+                <tr><th>Pseudo Clases de Interfaz </th><th>Seleccionara: </th></tr>
+            </thead>
+            <tbody>
+                <tr><td>:eneable</td><td>Si el elemento (de formulario) esta habilitado</td></tr>
+                <tr><td>:disable</td><td>Si el elemento (de formulario) esta inhabilitado</td></tr>
+                <tr><td>:checked</td><td>Si el elemento checked, radio button y option esta seleccionado</td></tr>
+                <tr><td>:valid</td><td>Los navegadores proveen validacion basica basica de acuerdo al tipo de elemento &lt; imput &gt</td></tr>
+                <tr><td>:invalid</td><td>Valid/invalid se asignan al elemento de acuerdo ala entrada del usuario</td></tr>
+                <tr><td>:required</td><td>Selecciona elementos que tengan el atributo de required</td></tr>
+                <tr><td>:optional</td><td>Selecciona elementos que no tengan el atributo de required</td></tr>
+         </tbody>
+
+
+        </table>
+    </div>
+    
+
+
+
+    
 </body>
 </html>
