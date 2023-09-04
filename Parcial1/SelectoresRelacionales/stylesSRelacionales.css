@@ -8,20 +8,21 @@ p{
     font-weight: bold;
 }
 
-/* Decendiente 
-#contenedor p{
+/*Decendiente */
+/*#contenedor p{
     color: red;
 }*/
 
 
-/*#contenedor > p{
+/* Hijo directo*/
+/* #contenedor > p{
     color: red;
-}*/
+} */
 
 /*p + div{
     color: red;
-}*(
+}*/
 
-/*p ~ div{
+/*div ~ p{
     color: red;
 }*/

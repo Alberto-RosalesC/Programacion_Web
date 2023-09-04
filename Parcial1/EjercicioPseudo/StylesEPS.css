@@ -58,4 +58,9 @@ tr:active{
 div ::first-letter{
     text-decoration: underline;
 }
+td::before {
+    content: "🔷 ";
+    color: steelblue;
+    margin-right: 5px;
+}
 
