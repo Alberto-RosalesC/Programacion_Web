@@ -60,7 +60,6 @@ div ::first-letter{
 }
 td::before {
     content: "🔷 ";
-    color: steelblue;
     margin-right: 5px;
 }
 
