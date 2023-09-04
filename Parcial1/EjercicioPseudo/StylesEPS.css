@@ -55,4 +55,7 @@ tr:active{
     background-color: red;
     color: white;
 }
+div ::first-letter{
+    text-decoration: underline;
+}
 
