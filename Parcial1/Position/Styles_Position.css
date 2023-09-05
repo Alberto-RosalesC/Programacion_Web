@@ -12,8 +12,9 @@
 }
 #Caja2 {
     position: relative;
-    top: 160px;
-    left: 200px;
+    top: 100px;
+    left: 50PX;
+    
 }
 
 #Caja3 {
@@ -28,7 +29,7 @@
     right: 10px;
 
 }
-#Caja6 {
+#Caja5 {
     position: sticky;
     top: 100px;
 }
