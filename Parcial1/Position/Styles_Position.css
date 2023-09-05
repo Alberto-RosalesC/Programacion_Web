@@ -2,23 +2,23 @@
     background-color: steelblue;
     color: yellow;
     width: 100px;
-    height: 100px;
+    height: 120px;
     margin: 50px;
 }
 
 #Caja1 {
     position: static;
-    left: 100px;
+    left: 110px;
 }
 #Caja2 {
     position: relative;
-    top: 150px;
+    top: 160px;
     left: 200px;
 }
 
 #Caja3 {
     position: absolute;
-    top: 10px;
+    top: 100px;
     right: 120px;   
 }
 
@@ -30,5 +30,5 @@
 }
 #Caja6 {
     position: sticky;
-    top: 10px;
+    top: 100px;
 }
