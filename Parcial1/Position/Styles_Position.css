@@ -8,13 +8,12 @@
 
 #Caja1 {
     position: static;
-    left: 110px;
+    left: 10px;
 }
 #Caja2 {
     position: relative;
     top: 100px;
     left: 50PX;
-    
 }
 
 #Caja3 {
