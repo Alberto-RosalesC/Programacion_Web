@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .content {
+            border: 10px solid steelblue;
+            background-color: gold;
+            color: steelblue;
+            float: left;
+            height: 100%;
+        }
+
+        #header {
+            background-color: steelblue;
+            border: 10px solid black;
+            padding: 60px;
+            font-size: 60px;
+        }
+
+        #content {
+            font-size: 100Px;
+            left: 30%;
+            width: 70%;
+        }
+
+        #sidebar {
+            font-size: 40px;
+            width: 30%;
+            left: 70%;
+        }
+
+        /* Ejemplo de clear para evitar que otros elementos floten alrededor del header */
+        #header {
+            clear: both;
+        }
+
+        /* Ejemplo de overflow en el contenido sin afectar el header */
+        #content {
+            overflow: auto; /* Mostrar barras de desplazamiento automáticamente si es necesario */
+        }
+    </style>
+
+</head>
+<body>
+    <header id="header"><h1>HEADER</h1></header>
+    <div id="sidebar" class="content"><h2>SideBar</h2></div>
+    <div id="content" class="content">
+        <h2>Content </h2>
+        <p> las propiedades CSS "float", "overflow" y "clear": 
+            <BR>Float (Flotar): 
+                float es una propiedad CSS que permite que un elemento se posicione hacia la izquierda o la derecha de su contenedor, permitiendo que otros elementos fluyan alrededor de él.</BR>
+            <BR>Overflow (Desbordamiento):
+                overflow es una propiedad CSS que controla el comportamiento del contenido que desborda su contenedor. Puede ocultar el contenido, mostrar barras de desplazamiento o permitir que el contenido desborde.</BR>
+        
+            <BR>Clear (Limpiar):
+
+                clear es una propiedad CSS que se utiliza para controlar el flujo de elementos flotantes en relación con otros elementos en la página. Cuando se aplica, asegura que no haya elementos flotantes en el mismo lado del elemento que se está "limpiando".</BR>
+        </p>
+    
+    </div>
+</body>
+</html>
