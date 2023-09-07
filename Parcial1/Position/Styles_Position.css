@@ -1,34 +1,36 @@
 .Cajas{
     background-color: steelblue;
-    color: yellow;
-    width: 100px;
-    height: 120px;
+    color: gold;
+    width: 200px;
+    height: 200px;
     margin: 50px;
 }
 
 #Caja1 {
     position: static;
-    left: 10px;
+    /*no le afecta el los movimiento*/
+    left: 100px;
 }
 #Caja2 {
     position: relative;
-    top: 100px;
-    left: 50PX;
+    top: 10px;
+    left: 100PX;
 }
 
 #Caja3 {
     position: absolute;
     top: 100px;
-    right: 120px;   
+    right: 500px;   
 }
 
 #Caja4 {
     position: fixed;
-    top: 10px;
+    top: 300px;
     right: 10px;
 
 }
 #Caja5 {
     position: sticky;
     top: 100px;
+    left: 100px;
 }
