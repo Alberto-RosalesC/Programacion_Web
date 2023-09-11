@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box ;
+            margin: 0;
+            padding: 0;
+        }
+        .contenedor{
+            height: 100vh;
+            width: 100vw;
+            background-color: gray;
+            display:grid;
+            grid-template-columns: 60% 40% ;
+            grid-template-rows: 30% 30% 40%;
+            grid-template-areas:'enca col1'
+                                'enca2 col1'
+                                'pled pled';
+            align-items: stretch;
+            justify-items: stretch;
+            
+        }   
+        .caja{
+           
+            background-color: steelblue;
+            color: gold;
+            border: 3px solid black;
+        }
+
+
+        #caja1{grid-area:enca;}
+        #caja2{grid-area: enca2;}
+        #caja3{grid-area: col1;}
+        #caja4{grid-area: pled;}
+       
+    
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div id="caja1" class="caja">caja 1</div>
+        <div id="caja2" class="caja">caja 2</div>
+        <div id="caja3" class="caja">caja 3</div>
+        <div id="caja4" class="caja">caja 4</div>
+    </div>
+</body>
+</html>
