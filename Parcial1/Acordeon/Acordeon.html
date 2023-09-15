@@ -31,11 +31,7 @@
             font-size: 40px; /* Reduce el tamaño de fuente del encabezado */
         }
 
-        #content {
-            font-size: 30px; /* Tamaño de fuente reducido */
-            width: 60%; /* Ancho del contenido aumentado */
-            left: 10%; /* Alineación izquierda del contenido */
-        }
+
 
         #sidebar {
             font-size: 20px; /* Tamaño de fuente reducido */
@@ -43,22 +39,42 @@
             left: 0%; /* Alineación izquierda del sidebar */
         }
 
-        /* Ejemplo de clear para evitar que otros elementos floten alrededor del header */
+        #content {
+            font-size: 30px; /* Tamaño de fuente reducido */
+            width: 60%; /* Ancho del contenido aumentado */
+            left: 10%; /* Alineación izquierda del contenido */
+        }
+        
         #header {
             clear: both;
         }
 
-        /* Ejemplo de overflow en el contenido sin afectar el header */
-        #content {
-            overflow: both; /* Mostrar barras de desplazamiento automáticamente si es necesario */
+        
+        .opcion {
+            cursor: pointer;
+            position: relative;
+            margin: 10px 0;
         }
-        .submenu{
+
+        .submenu {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 2px solid steelblue;
+            list-style-type: none;
+            z-index: 1;
         }
+
         li.opcion:hover .submenu{
             display: block;
             padding: 2ex;
             list-style-type: none;
+        }
+
+        .submenu li {
+            margin: 5px 0;
         }
     </style>
 </head>
