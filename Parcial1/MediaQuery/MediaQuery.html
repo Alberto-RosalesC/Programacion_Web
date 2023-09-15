@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(89, 182, 46);
+        }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .caja {
+            width: calc((100% / 4) - 20px); /* Ajustamos el ancho para mostrar 4 columnas en pantalla ancha */
+            height: 550px;
+            background-color: steelblue;
+            color: red;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 5px solid black;
+            margin-bottom: 20px; /* Agregamos margen inferior para espaciar las cajas */
+        }
+
+        @media screen and (min-width: 480px) and (max-width: 900px) {
+            .caja {
+                width: calc((100% / 2) - 20px); /* Ajustamos el ancho para mostrar 2 columnas en pantallas medianas */
+            }
+
+            #caja3 {
+                clear: none; /* Quitamos la propiedad clear para permitir que las cajas fluyan correctamente */
+                width: calc(100% - 20px);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .caja {
+                clear: none; /* Quitamos la propiedad clear para permitir que las cajas fluyan correctamente */
+                width: calc(100% - 20px); /* Ajustamos el ancho para mostrar 1 columna en pantallas estrechas */
+            }
+        }
+
+        /* Agregamos una animación al hacer clic en las cajas */
+        .caja:active {
+            animation: rotate-horizontal-center 0.4s;
+        }
+
+        @keyframes rotate-horizontal-center {
+            0% {
+                transform: rotateX(0);
+            }
+
+            100% {
+                transform: rotateX(-360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div id="caja1" class="caja"></div>
+        <div id="caja2" class="caja"></div>
+        <div id="caja3" class="caja"></div>
+    </div>
+</body>
+</html>
