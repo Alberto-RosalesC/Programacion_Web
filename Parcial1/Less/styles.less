@@ -1,5 +1,5 @@
 :root{
-    --color-primario:#3498db;
+    --color-primario:black;
     --color-secundario:rgba(114, 248, 114, 0.74);
 }
 body:has(input:checked){
@@ -120,11 +120,11 @@ h1 {
 div#contenedor {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     h2{
-        color: #3498db;
+        color: @bg-color;
 
     }
-    h2{
-        color: red;
+    p{
+        color: @text-color;
     }
 }
 

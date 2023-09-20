@@ -1,5 +1,5 @@
 :root {
-  --color-primario: #3498db;
+  --color-primario: black;
   --color-secundario: rgba(114, 248, 114, 0.74);
 }
 body:has(input:checked) {
@@ -120,6 +120,6 @@ div#contenedor {
 div#contenedor h2 {
   color: #3498db;
 }
-div#contenedor h2 {
-  color: red;
+div#contenedor p {
+  color: #ffffff;
 }
