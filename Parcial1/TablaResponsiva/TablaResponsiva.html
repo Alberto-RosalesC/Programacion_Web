@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+        text-align: center;
+        color: steelblue;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.3s;
+        font-size: 2rem; /* Aumenta el tamaño de la fuente */
+        }
+
+        h1:hover {
+            color: royalblue;
+            transform: scale(1.1);
+        }
+
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: separate; 
+            border-spacing: 20px; 
+            border: 3px solid steelblue;
+        }
+
+        th, td {
+            border: 3px solid steelblue;
+            padding: 12px;
+            text-align: center;
+            position: relative;
+            font-size: 1.3rem; /* Aumenta el tamaño de la fuente de las celdas */
+        }
+
+        th {
+            background-color: steelblue;
+            color: white;
+        }
+
+        @media screen and (max-width: 680px) {
+            table {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            td {
+                padding-left: 50%;
+            }
+
+        }
+        @media screen and (max-width: 680px) {
+            table {
+                display: block;
+                width: 100%;
+            }
+
+            thead {
+                display: none; /* Oculta el encabezado */
+
+            }   
+
+            tbody tr {
+                display: block;
+                margin-bottom: 10px; /* Espacio entre las filas */
+            }
+
+            tbody td {
+                display: block;
+                padding-left: 10px; /* Espacio izquierdo para las celdas */
+            }
+
+            /* Estilos adicionales según sea necesario */
+        }
+
+
+        tr:hover {
+            background-color: lightsteelblue;
+            
+        }
+
+        td:active {
+            background-color: lightcoral;
+            cursor: pointer;
+
+        }
+        td.A:active::before {
+            content: "GERARDO PINEDA ZAPATA"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.B:active::before {
+            content: "URIEL VAZQUEZ ARANDA"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.C:active::before {
+            content: "JAIME DAVID JOHNSTON BARRIENTOS"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.D:active::before {
+            content: "JAVIER CASTAÑEDA AMBRIZ"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.E:active::before {
+            content: "JOSE LUIS SANDOVAL GUZMAN"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.F:active::before {
+            content: "MARIA GUADALUPE MENDOZA GARCIA"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        td.G:active::before {
+            content: "LUDWING DANIEL OLIVA PEREA"; /* Agrega el texto que deseas mostrar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.5); /* Fondo semi-transparente */
+            color: white;
+            text-align: center;
+            padding: 5px;
+            z-index: 1; /* Asegura que el texto esté por encima del contenido del td */
+        }
+        /*----------------------------*/
+        
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <h1>HORARIO 21100284</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>7:00 a 8:00</td>
+                <td class="A">Programación Web</td>
+                <td class="A">Programación web</td>
+                <td class="A">Programación web</td>
+                <td class="A">Programación web</td>
+                <td class="A">Programación web</td>
+            </tr>
+            <tr>
+                <td>8:00 a 9:00</td>
+                <td class="B">Arquitectua de Computadoras</td>
+                <td class="C">Sistemas Operativos</td>
+                <td class="B">Arquitectua de Computadoras</td>
+                <td class="C">Sistemas Operativos</td>
+                <td class="B">Arquitectura de Computadoras</td>
+            </tr>
+            <tr>
+                <td>9:00 a 10:00</td>
+                <td> LIBRE </td>
+                <td class="C"> SO </td>
+                <td class="B"> AC </td>
+                <td class="C"> SO </td>
+                <td class="B"> AC </td>
+            </tr>
+            <tr>
+                <td>10:00 a 11:00</td>
+                <td class="D">Simulacion</td>
+                <td class="D">Simulacion</td>
+                <td class="D">Simulacion</td>
+                <td class="D">Simulacion</td>
+                <td class="D">Simulacion</td>
+            </tr>
+            <tr>
+                <td>11:00 a 12:00</td>
+                <td>LIBRE</td>
+                <td>LIBRE</td>
+                <td>LIBRE</td>
+                <td>LIBRE</td>
+                <td>LIBRE</td>
+            </tr>
+            <tr>
+                <td>12:00 a 1:00 </td>
+                <td class="E">Telecomunicaciones</td>
+                <td class="F">Ingenieria de software</td>
+                <td class="E">Telecomunicaciones</td>
+                <td class="F">Ingenieria de software</td>
+                <td>LIBRE</td>
+            </tr>
+            <tr>
+                <td>1:00 a 2:00</td>
+                <td class="E">TC</td>
+                <td class="F">IS</td>
+                <td class="E">TC</td>
+                <td class="F">Ingeniera de Software</td>
+                <td class="F">Ingenieria de Software</td>
+            </tr>
+            <tr>
+                <td>2:00 a 3:00</td>
+                <td class="G">Taller de Base de Datos</td>
+                <td class="G">Taller de Base de Datos</td>
+                <td class="G">Taller de Base de Datos</td>
+                <td class="G">Taller de Base de Datos</td>
+                <td class="G">Taller de Base de Datos</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
