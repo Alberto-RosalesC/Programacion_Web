@@ -10,6 +10,7 @@
     position: static;
     /*no le afecta el los movimiento*/
     left: 100px;
+    
 }
 #Caja2 {
     position: relative;
