@@ -15,7 +15,7 @@ let nombre3 = "Rectangulo es: ";
 let circulo=areas.areaCirculo(4);
 let nombre4 = "Circulo es: ";
 //Diseño
-let cuadradoascii=areas.dibujarCuadradoASCII(10);
+let cuadradoascii=areas.dibujarCuadradoASCII(5);
 
 let mensaje1 = AFigura.concat(nombre1);
 let mensaje2 = AFigura.concat(nombre2);
