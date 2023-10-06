@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    background-color: gold;
+    color: steelblue;
+    float: left;
+    font-size: 16px; /* Aumenta el tamaño del texto */
+    font-weight: bold; /* Hace que el texto sea más audaz */
+    height: 100%;
+}
+
+#header {
+    background-color: steelblue;
+    padding: 5px; 
+    font-size: 40px; 
+    font-size: 16px; 
+    font-weight: bold;
+}
+
+#content {
+    font-size: 25px; 
+    width: 80%; 
+    left: 10%; /* Alineación izquierda del contenido */
+}
+
+#sidebar {
+    width: 20%; 
+    border-right: 5px solid steelblue;
+    left: 0%; /* Alineación izquierda del sidebar */
+    font-size: 16px; /* Aumenta el tamaño del texto */
+    font-weight: bold; /* Hace que el texto sea más audaz */
+}
+
+#header {
+    clear: both;
+}
+
+#content {
+    overflow: both; /* Mostrar barras de desplazamiento automáticamente si es necesario */
+}
+
+.sidebarEscondido{
+    display: none;
+}
+.ContenidoAlCien{
+    width: 100% !important;
+}
+
+#btn{
+    cursor: pointer;
+    width: 150px; 
+    height: 50px;
+    border: none; 
+    border-radius: 5px; /* Añade esquinas redondeadas */
+    font-size: 16px; 
+    font-weight: bold; /* Hace que el texto sea más audaz */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 50px; /* Centra el texto verticalmente */
+    text-decoration: none;
+}
+
+
+
+
+  
