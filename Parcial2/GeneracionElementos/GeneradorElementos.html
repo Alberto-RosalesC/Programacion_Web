@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor"></div>
+</body>
+<script>
+    let encabezados=['HORA','LUNES','MARTES','MIERCOLES',"JUEVES","VIERNES"];
+    let datos = [{
+        HORA: "7:00 A 8:00",
+        LUN: "PROGRAMACION WEB",
+        MAR: "PROGRAMACION WEB",
+        MIE: "PROGRAMACION WEB",
+        JUE: "PROGRAMACION WEB",
+        VIE: "PROGRAMACION WEB",
+
+    },{
+        HORA: "8:00 A 9:00",
+        LUN: "ARQ. DE COMPUTADORAS",
+        MAR: "SIS. OPERATIVOS",
+        MIE: "ARQ. DE COMPUTADORAS",
+        JUE: "SIS. OPERATIVOS",
+        VIE: "ARQ. DE COMPUTADORAS",
+
+    },
+    {
+        HORA: "9:00 A 10:00",
+        LUN: "LIBRE",
+        MAR: "SIS. OPERATIVOS",
+        MIE: "ARQ. DE COMPUTADORAS",
+        JUE: "SIS. OPERATIVOS",
+        VIE: "ARQ. DE COMPUTADORAS",
+
+    },{
+        HORA: "10:00 A 11:00",
+        LUN: "SIMULACION",
+        MAR: "SIMULACION",
+        MIE: "SIMULACION",
+        JUE: "SIMULACION",
+        VIE: "SIMULACION",
+
+    },{
+        HORA: "11:00 A 12:00",
+        LUN: "LIBRE",
+        MAR: "LIBRE",
+        MIE: "LIBRE",
+        JUE: "LIBRE",
+        VIE: "LIBRE",
+
+    },{
+        HORA: "12:00 A 1:00",
+        LUN: "FD. DE TELECOMUNIACIONES",
+        MAR: "ING. SOFTWARE",
+        MIE: "FD. DE TELECOMUNIACIONES",
+        JUE: "ING. SOFTWARE",
+        VIE: "LIBRE",
+
+    },{
+        HORA: "1:00 A 2:00",
+        LUN: "FD. DE TELECOMUNIACIONES",
+        MAR: "ING. SOFTWARE",
+        MIE: "FD. DE TELECOMUNIACIONES",
+        JUE: "ING. SOFTWARE",
+        VIE: "ING. SOFTWARE",
+
+    },{
+        HORA: "2:00 A 3:00",
+        LUN: "TALLER DE BD",
+        MAR: "TALLER DE BD",
+        MIE: "TALLER DE BD",
+        JUE: "TALLER DE BD",
+        VIE: "TALLER DE BD",
+
+    }]
+
+    let tab = document.createElement("table");
+    let enc = document.createElement("thead");
+    let fil = document.createElement("tr");
+
+    encabezados.forEach(elemento=>{ 
+        let th= document.createElement("th");
+        th.innerText= elemento;
+        fil.appendChild(th);
+        
+    })
+
+    enc.appendChild(fil);
+    tab.appendChild(enc);
+
+    tbody=document.createElement("tbody");
+
+    datos.forEach(function(elemento){
+        let fila= document.createElement("tr");
+
+        let td1 = document.createElement("td");
+        td1.innerText=elemento.HORA;
+        fila.appendChild(td1);
+
+        let td2 = document.createElement("td");
+        td2.innerText=elemento.LUN;
+        fila.appendChild(td2);
+
+        let td3 = document.createElement("td");
+        td3.innerText=elemento.MAR;
+        fila.appendChild(td3);
+
+        let td4 = document.createElement("td");
+        td4.innerText=elemento.MIE;
+        fila.appendChild(td4);
+
+        let td5 = document.createElement("td");
+        td5.innerText=elemento.JUE;
+        fila.appendChild(td5);
+
+        let td6 = document.createElement("td");
+        td6.innerText=elemento.VIE;
+        fila.appendChild(td6);
+
+        
+        tbody.appendChild(fila);
+
+    })
+
+    tab.appendChild(tbody);
+
+    document.getElementById("contenedor").appendChild(tab);
+
+
+    // Obtengo la tabla
+    let tabla = document.querySelector("table");
+
+    // estilos para la tabla
+    tabla.style.border = "1px solid #000"; 
+    tabla.style.borderCollapse = "collapse"; 
+    tabla.style.width = "100%";
+
+    // as celdas de datos en la tabla (ignorando el encabezado)
+    let celdas = document.querySelectorAll("table tbody td");
+
+    // estilos para las celdas
+    celdas.forEach(function(celda) {
+        celda.style.padding = "8px";
+        celda.style.border = "1px solid #000";
+        celda.style.textAlign = "center";
+    });
+
+    // estilos adicionales para encabezado
+    let encabezado = document.querySelector("table thead");
+    encabezado.style.backgroundColor = "#333"; 
+    encabezado.style.color = "#fff";
+    encabezado.style.fontWeight = "bold";
+
+
+
+
+
+</script>
+</html>
