@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <style>
+        
+        *{
+            box-sizing:border-box ;
+            margin: 0px;
+            padding: 0px;
+            background-color: none;
+            
+            
+        }
+        .contenedor{
+            height: 100vh;
+            width: 100vw;
+            background-color: gray;
+            display:grid;
+            grid-template-columns: 250px 250px 250px;
+            grid-template-rows: 250px 250px 250px 250px;
+            justify-content: center;
+            align-items: stretch;
+            justify-items: stretch;
+
+        }   
+        .caja{
+            height: 100%;
+            width: 100%;
+            background-color:rgba(114, 248, 114, 0.74);;
+            color: black;
+            border: 5px solid black;
+            font-size: 200px;
+            text-align: center;
+            justify-self: center;
+            
+        }
+
+        #btnLim{
+            cursor: pointer;
+            width: 150px; 
+            height: 50px;
+            font-size: 16px; 
+            font-weight: bold; 
+            text-align: center; 
+            line-height: 50px; 
+            text-decoration: none;
+        }
+        #mensajeGanador {
+            color: black;
+            font-size: 24px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="cont" class="contenedor">
+        <div id="caja1" class="caja"></div>
+        <div id="caja2" class="caja"></div>
+        <div id="caja3" class="caja"></div>
+        <div id="caja4" class="caja"></div>
+        <div id="caja5" class="caja"></div>
+        <div id="caja6" class="caja"></div>
+        <div id="caja7" class="caja"></div>
+        <div id="caja8" class="caja"></div>
+        <div id="caja9" class="caja"></div>
+        <div id="mensajeGanador"></div>
+        <div><button id="btnLim" type="button">Limpiar</button></div>
+        <div></div>
+        
+    </div>
+</body>
+<script src="Gato2.js">
+    
+</script>
+</html>
