@@ -4,6 +4,7 @@
     <title>Ejemplo de petición a The Cat API</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
     <style>
@@ -16,7 +17,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f2f2f2;
+            background-color: #f2f2f2; 
         }
 
         button {
@@ -24,18 +25,29 @@
             margin: 5px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
 
-        #gatoContainer S{
+        button:hover {
+            background-color: #45a049; 
+        }
+
+        #gatoContainer {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 20px; 
         }
 
         #imagenGato {
-            width: 400px;
-            height: auto;
+            width: 500px;
+            height: 500px;
             display: none;
+            border: 2px solid #333; 
+            border-radius: 10px;
         }
 
     </style>
@@ -63,6 +75,7 @@
                             const responseData = JSON.parse(this.responseText);
                             const imageUrl = responseData[0].url;
                             imagenGato.src = imageUrl;
+                            imagenGato.style.display = "block"; 
                         } else {
                             console.error('Error en la solicitud. Código de estado: ' + this.status);
                         }
@@ -79,6 +92,7 @@
                     const imagenGato = document.getElementById("imagenGato");
                     const imageUrl = data[0].url;
                     imagenGato.src = imageUrl;
+                    imagenGato.style.display = "block";
                 })
                 .catch(error => {
                     console.error('Error en la solicitud: ' + error);
