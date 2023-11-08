@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        select {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #chiste {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <select name="chuck" id="categorias"></select>
+    <button id="Peticion">Peticion</button>
+    <div id="chiste"></div>
+    
+    <script>
+        window.onload=function(){
+
+            fetch("https://api.chucknorris.io/jokes/categories")
+                .then(response => response.json()) // Convertimos la respuesta en formato JSON
+                .then(function(dato) {
+                
+                   dato.forEach(elemento => {
+                    console.log(elemento)
+
+                    let opt= document.createElement("option")
+                    opt.value= elemento;
+                    opt.innerText=elemento;
+
+                    document.getElementById("categorias").appendChild(opt)
+                    
+                   });
+                })
+                .catch(error => {
+                    console.error('Error en la solicitud: ' + error);
+                });
+
+                document.getElementById("Peticion").addEventListener("click",() =>{
+                    let opt = document.getElementById("categorias").value;
+                    fetch(`https://api.chucknorris.io/jokes/random?category=${opt}`)
+                    .then(response => response.json())
+                    .then(function (dato) {
+                        document.getElementById("chiste").innerText = dato.value;
+                    });
+                })
+        }
+
+
+    </script>
+</body>
+</html>
