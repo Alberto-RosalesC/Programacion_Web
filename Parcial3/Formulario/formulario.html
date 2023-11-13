@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="miFormulario" method="GET">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="button" id="btn" value="Enviar">
+        <input type="reset" id="clean" value="Limpiar">
+    </form>
+    
+    <div id="contenedor"></div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function () {
+            event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+
+            let valornombre = encodeURIComponent(document.getElementById("nombre").value);
+            let valorcorreo = encodeURIComponent(document.getElementById("correo").value);
+            let valormensaje = encodeURIComponent(document.getElementById("mensaje").value);
+
+            fetch(`FormFetch.php?nombre=${valornombre}&correo=${valorcorreo}&mensaje=${valormensaje}`)
+                .then(respuesta => respuesta.text())
+                .then(dato => document.getElementById("contenedor").innerHTML = dato)
+                .catch(error => console.error('Error en la solicitud fetch:', error));
+        });
+    </script>
+</body>
+</html>
