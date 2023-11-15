@@ -8,7 +8,7 @@ http://localhost:8082/ARTISTA
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'guero99a',
+    password: 'g***a',
     database: 'spotify'
   });
 
