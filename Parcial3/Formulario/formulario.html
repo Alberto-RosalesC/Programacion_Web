@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,24 +16,24 @@
         <label for="mensaje">Mensaje:</label><br>
         <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea><br><br>
 
-        <input type="button" id="btn" value="Enviar">
-        <input type="reset" id="clean" value="Limpiar">
+        <button type="button" id="btnConsultar"></button>
     </form>
     
-    <div id="contenedor"></div>
 
     <script>
-        document.getElementById("btn").addEventListener("click", function () {
-            event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+        document.getElementById("btnConsultar").addEventListener("click", async () => {
+            let id= prompt("id del usuario");
 
-            let valornombre = encodeURIComponent(document.getElementById("nombre").value);
-            let valorcorreo = encodeURIComponent(document.getElementById("correo").value);
-            let valormensaje = encodeURIComponent(document.getElementById("mensaje").value);
+            let response = await fetch ('http://localhost:8082/ARTISTAS?ID_ARTISTAS=${id}', {method: 'GET'});
 
-            fetch(`FormFetch.php?nombre=${valornombre}&correo=${valorcorreo}&mensaje=${valormensaje}`)
-                .then(respuesta => respuesta.text())
-                .then(dato => document.getElementById("contenedor").innerHTML = dato)
-                .catch(error => console.error('Error en la solicitud fetch:', error));
+            let data = await response.json();
+            console.log(data)
+            if(data.status==0){
+                alert(data.mesaje)
+            }{
+                console.log(data.datos);
+                document.getElementById("nombre").value=data.datos.nombre;
+            }
         });
     </script>
 </body>
