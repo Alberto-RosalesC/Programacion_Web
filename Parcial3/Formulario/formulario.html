@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Artistas</title>
-    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,7 +32,8 @@
             color: #007bff;
         }
 
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             padding: 8px;
             margin-bottom: 16px;
@@ -55,6 +56,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <form id="miFormulario" method="GET">
@@ -77,11 +79,13 @@
         <input type="text" id="pais" name="pais" required>
 
         <button type="button" id="btnConsultar">Consultar</button>
+        <button type="button" id="btnAgregar">Agregar</button>
+        <button type="button" id="btnModificar">Modificar</button>
         <button type="button" id="btnEliminar">Eliminar</button>
+
     </form>
 
     <script>
-        import swal from 'sweetalert2';
 
         document.getElementById("btnConsultar").addEventListener("click", async () => {
             let id = prompt("ID del artista");
@@ -93,44 +97,81 @@
             console.log(data)
 
             if (data.status == 0) {
- 
+                alert(data.mensaje);
                 console.log(data.status)
-                swal("Good job!", "You clicked the button!", "success");
+
             } else {
                 console.log(data.datos);
                 console.log(data.status);
 
                 document.getElementById("nombre").value = data.datos.nombre;
                 document.getElementById("apellido").value = data.datos.apellido;
-                
+
                 let fechaNacimiento = new Date(data.datos.fecha_nacimiento);
                 let formattedFechaNacimiento = fechaNacimiento.toISOString().split('T')[0];
                 document.getElementById("fecha_nacimiento").value = formattedFechaNacimiento;
 
                 document.getElementById("acerca_de").value = data.datos.acerca_de;
                 document.getElementById("pais").value = data.datos.pais;
-                swal("Good job!", "You clicked the button!", "success");
             }
+        });
+
+        document.getElementById("btnAgregar").addEventListener("click", async () => {
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+            let acercaDe = document.getElementById("acerca_de").value;
+            let pais = document.getElementById("pais").value;
+
+            await fetch(`http://localhost:8082/ARTISTA?NOMBRE=${nombre}&APELLIDO=${apellido}&FECHA_NACIMIENTO=${fechaNacimiento}&ACERCA_DE=${acercaDe}&PAIS=${pais}`, { method: "POST" })
+
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 1) {
+                        alert(data.mensaje);
+                    } else {
+                        alert(data.mensaje);
+                    }
+                });
         });
 
 
         document.getElementById("btnEliminar").addEventListener("click", async () => {
-        let id = document.getElementById("id_artista").value;
+            let id = document.getElementById("id_artista").value;
 
-        await fetch(`http://localhost:8082/ARTISTA?ID_ARTISTA=${id}`, { method: 'DELETE' })
-        .then(response => response.json())
-        .then(data => {
-            if(data.status==1){
-                alert(data.mensaje);
-            }
-            else{
-                alert(data.mensaje)
-            }
-        })
+            await fetch(`http://localhost:8082/ARTISTA?ID_ARTISTA=${id}`, { method: 'DELETE' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status == 1) {
+                        alert(data.mensaje);
+                    }
+                    else {
+                        alert(data.mensaje)
+                    }
+                })
+        });
 
-            
-    });
-        
+        document.getElementById("btnModificar").addEventListener("click", async () => {
+                let id = document.getElementById("id_artista").value;
+                let nombre = document.getElementById("nombre").value;
+                let apellido = document.getElementById("apellido").value;
+                let fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+                let acercaDe = document.getElementById("acerca_de").value;
+                let pais = document.getElementById("pais").value;
+
+                await fetch(`http://localhost:8082/ARTISTA?ID_ARTISTA=${id}&NOMBRE=${nombre}&APELLIDO=${apellido}&FECHA_NACIMIENTO=${fechaNacimiento}&ACERCA_DE=${acercaDe}&PAIS=${pais}`, { method: "PUT" })
+
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 1) {
+                            alert(data.mensaje);
+                        } else {
+                            alert(data.mensaje);
+                        }
+                    })
+            });
+
     </script>
 </body>
+
 </html>
