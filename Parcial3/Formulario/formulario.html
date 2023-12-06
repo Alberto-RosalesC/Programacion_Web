@@ -88,7 +88,7 @@
         <button type="button" id="btnAgregar">Agregar</button>
         <button type="button" id="btnModificar">Modificar</button>
         <button type="button" id="btnEliminar">Eliminar</button>
-
+        <button type="button" id="btnPDF">pdf</button>
     </form>
 
     <script>
@@ -109,6 +109,8 @@
             } else {
                 console.log(data.datos);
                 console.log(data.status);
+
+                document.getElementById("id_artista").value= id
 
                 document.getElementById("nombre").value = data.datos.nombre;
                 document.getElementById("apellido").value = data.datos.apellido;
@@ -176,6 +178,30 @@
                         }
                     })
             });
+
+            document.getElementById("btnPDF").addEventListener("click", async () => {
+                let ID = document.getElementById("id_artista").value;
+                let nombre = document.getElementById("nombre").value;
+                let apellido = document.getElementById("apellido").value;
+                let fechaNacimiento = document.getElementById("fecha_nacimiento").value;
+                let acerca_de = document.getElementById("acerca_de").value;
+                let pais = document.getElementById("pais").value;
+
+                let response = await fetch(`http://localhost:8082/ARTISTA/CANTANTE?ID_ARTISTA=${ID}&NOMBRE=${nombre}&APELLIDO=${apellido}&FECHA_NACIMIENTO=${fechaNacimiento}&ACERCA_DE=${acerca_de}&PAIS=${pais}`, { method: "GET" });
+                
+                if (!response.ok) {
+                    console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+                    return;
+                }
+
+                let blob = await response.blob();
+                let url = window.URL.createObjectURL(blob);
+                let a = document.createElement('a');
+                a.href = url;
+                a.download = 'Tu cantante.pdf';
+                a.click();
+            });
+
 
     </script>
 </body>

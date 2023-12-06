@@ -4,6 +4,9 @@ const mysql= require('mysql2');
 
 const app = express(); 
 app.use(cors());
+const { jsPDF } = require("jspdf");
+const fs = require('fs');
+const path = require('path');
 //http://localhost:8082/ARTISTA
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -155,6 +158,60 @@ const connection = mysql.createConnection({
             )
         }
     });
+
+    app.get('/ARTISTA/CANTANTE', (req, res) => {
+        let doc = new jsPDF();
+        doc.setFontSize(12);
+    
+        const ID_ARTISTA = req.query.ID_ARTISTA;
+        const NOMBRE = req.query.NOMBRE;
+        const APELLIDO = req.query.APELLIDO;
+        const FECHA_NACIMIENTO = req.query.FECHA_NACIMIENTO;
+        const ACERCA_DE = req.query.ACERCA_DE;
+        const PAIS = req.query.PAIS;
+    
+        // Espaciado entre líneas
+        const espaciado = 10;
+    
+        // Coordenadas iniciales
+        let coordenadaY = 20;
+    
+        doc.text('ID del Artista:', 10, coordenadaY);
+        doc.text(ID_ARTISTA, 80, coordenadaY);
+    
+        coordenadaY += espaciado;
+        doc.text('Nombre:', 10, coordenadaY);
+        doc.text(NOMBRE, 80, coordenadaY);
+    
+        coordenadaY += espaciado;
+        doc.text('Apellido:', 10, coordenadaY);
+        doc.text(APELLIDO, 80, coordenadaY);
+    
+        coordenadaY += espaciado;
+        doc.text('Fecha de Nacimiento:', 10, coordenadaY);
+        doc.text(FECHA_NACIMIENTO, 80, coordenadaY);
+    
+        coordenadaY += espaciado;
+        doc.text('Acerca de:', 10, coordenadaY);
+        doc.text(ACERCA_DE, 80, coordenadaY);
+    
+        coordenadaY += espaciado;
+        doc.text('País:', 10, coordenadaY);
+        doc.text(PAIS, 80, coordenadaY);
+    
+        const archivoPDF = path.join('C:\\Users\\beto1\\OneDrive\\Documentos', 'consulta.pdf');
+    
+        doc.save(archivoPDF, function (err) {
+            if (err) {
+                console.error(err);
+                return res.sendStatus(500);
+            }
+            res.download(archivoPDF);
+        });
+    });
+    
+
+
     app.listen(8082,(req,res)=>{
         console.log("Servidor express corriendo en puerto 8082")
     })
