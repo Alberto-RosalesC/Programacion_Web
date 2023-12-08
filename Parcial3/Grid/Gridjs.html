@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link
       href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
       rel="stylesheet"
     />
   </head>
+  <style> 
+    body{
+      color: black;
+    }
+  </style>
   <body>
     <h1>MIS CANTANTES FAVORITOS</h1>
     <div id="wrapper"></div>
 
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-    <script src="src/index.js"></script>
+    
     <script>
-        new gridjs.Grid({
-          columns: ['id_persona', 'nombre', 'apellido', 'fecha_nacimiento', 'acerca_de','pais'],
-          server: {
-              url: 'http://localhost:8082/ARTISTA',
-              then: data => data.map(persona => 
-              [persona.id_artista, persona.nombre , persona.apellido, persona.fecha_nacimiento, persona.acerca_de, persona.pais]
-              )
-          } 
-          }).render(document.getElementById("wrapper"));
-      </script>
+      new gridjs.Grid({
+        search: true,
+        columns: ['id_artista', 'nombre', 'apellido', 'fecha_nacimiento', 'acerca_de', 'pais'],
+        server: {
+            url: 'http://localhost:8082/ARTISTA',
+            then: data => data.datos.map(persona => 
+            [persona.id_artista, persona.nombre , persona.apellido, persona.fecha_nacimiento, persona.acerca_de, persona.pais]
+            )
+        } 
+      }).render(document.getElementById("wrapper"));
+  </script>
+  
   </body>
 </html>

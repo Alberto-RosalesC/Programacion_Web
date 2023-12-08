@@ -1,12 +1,12 @@
 const express = require('express'); 
 const cors = require('cors');
 const mysql= require('mysql2');
-
-const app = express(); 
-app.use(cors());
-const { jsPDF } = require("jspdf");
+const {jsPDF} = require('jspdf'); 
 const fs = require('fs');
 const path = require('path');
+const app = express(); 
+app.use(cors());
+
 //http://localhost:8082/ARTISTA
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -17,37 +17,50 @@ const connection = mysql.createConnection({
 
   
   //CONSULTA
-    app.get('/ARTISTA',(req,res)=>{
-
-        console.log(req.query.ID_ARTISTA);
-
-        let consulta=''
-
-        if(typeof(req.query.ID_ARTISTA)=='undefined'){
+    app.get('/ARTISTA', (req, res) => {
+        const id_artista = req.query.ID_ARTISTA;
+    
+        let consulta = '';
+    
+        if (typeof id_artista === 'undefined') {
             consulta = `SELECT * FROM ARTISTA`;
-        }else{
-            consulta = `SELECT * FROM ARTISTA WHERE ID_ARTISTA = ${req.query.ID_ARTISTA}`;
+        } else {
+            consulta = `SELECT * FROM ARTISTA WHERE ID_ARTISTA = ${id_artista}`;
         }
-        
-        console.log(consulta)
-
-        connection.query(
-            consulta,
-            function(err, results, fields) {
-                if(results.length==0){
-                    res.json({ status:0,
-                        mensaje:"ID no existe",
-                        datos: {} });
-                } 
-                else {
-                    res.json({status: 1,
-                            mensaje : "Artista encontrado",
-                            datos: results[0] });
-                }
+    
+        console.log(consulta);
+    
+        connection.query(consulta, (err, results, fields) => {
+            if (err) {
+                console.error('Error al ejecutar la consulta:', err);
+                res.status(500).json({ mensaje: 'Error en la consulta a la base de datos' });
+                return;
             }
-        )
-        
+    
+            if (results.length === 0) {
+                res.json({
+                    status: 0,
+                    mensaje: "ID no existe",
+                    datos: []
+                });
+            } else {
+                // Ajusta la respuesta dependiendo de la cantidad de resultados
+                const response = {
+                    status: 1,
+                    mensaje: "Alumnos encontrados"
+                };
+    
+                if (results.length === 1) {
+                    response.datos = results[0];
+                } else {
+                    response.datos = results;
+                }
+    
+                res.json(response);
+            }
+        });
     });
+    
 
     //AGREGAR
     app.post('/ARTISTA', (req, res) => {
@@ -160,7 +173,7 @@ const connection = mysql.createConnection({
     });
 
     app.get('/ARTISTA/CANTANTE', (req, res) => {
-        let doc = new jsPDF();
+        const doc = new jsPDF();
         doc.setFontSize(12);
     
         const ID_ARTISTA = req.query.ID_ARTISTA;
@@ -170,44 +183,34 @@ const connection = mysql.createConnection({
         const ACERCA_DE = req.query.ACERCA_DE;
         const PAIS = req.query.PAIS;
     
-        // Espaciado entre líneas
-        const espaciado = 10;
+        doc.text('ID del Artista:', 10, 10);
+        doc.text(ID_ARTISTA, 10, 20);
+        doc.text('Nombre:', 10, 40);
+        doc.text(NOMBRE, 10, 50);
+        doc.text('Apellido:', 10, 70);
+        doc.text(APELLIDO, 10, 80);
+        doc.text('Fecha de Nacimiento:', 10, 100);
+        doc.text(FECHA_NACIMIENTO, 10, 110);
+        doc.text('Acerca de:', 10, 130);
+        doc.text(ACERCA_DE, 10, 140);
+        doc.text('País:', 10, 160);
+        doc.text(PAIS, 10, 170);
     
-        // Coordenadas iniciales
-        let coordenadaY = 20;
+        const folderPath = path.join(__dirname, 'CRUD', 'documents');
+   
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath, { recursive: true });
+        }
     
-        doc.text('ID del Artista:', 10, coordenadaY);
-        doc.text(ID_ARTISTA, 80, coordenadaY);
+        let archivoPDF = path.join(folderPath, `consulta_${ID_ARTISTA}.pdf`);
     
-        coordenadaY += espaciado;
-        doc.text('Nombre:', 10, coordenadaY);
-        doc.text(NOMBRE, 80, coordenadaY);
-    
-        coordenadaY += espaciado;
-        doc.text('Apellido:', 10, coordenadaY);
-        doc.text(APELLIDO, 80, coordenadaY);
-    
-        coordenadaY += espaciado;
-        doc.text('Fecha de Nacimiento:', 10, coordenadaY);
-        doc.text(FECHA_NACIMIENTO, 80, coordenadaY);
-    
-        coordenadaY += espaciado;
-        doc.text('Acerca de:', 10, coordenadaY);
-        doc.text(ACERCA_DE, 80, coordenadaY);
-    
-        coordenadaY += espaciado;
-        doc.text('País:', 10, coordenadaY);
-        doc.text(PAIS, 80, coordenadaY);
-    
-        const archivoPDF = path.join('C:\\Users\\beto1\\OneDrive\\Documentos', 'consulta.pdf');
-    
-        doc.save(archivoPDF, function (err) {
-            if (err) {
-                console.error(err);
-                return res.sendStatus(500);
-            }
+        try {
+            doc.save(archivoPDF);
             res.download(archivoPDF);
-        });
+        } catch (err) {
+            console.error("Error al guardar o descargar el archivo PDF:", err);
+            res.status(500).json({ error: err.message });
+        }
     });
     
 
